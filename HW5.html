@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        body = document.querySelector('body');
+        body.appendChild(createBoard());
+        fillBoard();
+
+        function createBoard() {
+            board = document.createElement('table');
+            for (var i = 0; i <= 8; i++) {
+                tr = board.appendChild(document.createElement('tr'));
+                for (var j = 0; j <= 8; j++) {
+                    td = tr.appendChild(document.createElement('td'));
+                    td.id = 'td' + String.fromCharCode(64 + j) + String.fromCharCode(48 + i);
+                    td.style.width = '100px';
+                    td.style.height = '100px';
+                    td.style.fontSize = '85px';
+                    td.style.textAlign = 'center';
+                    if (i == 0 && j == 0) {} else if (i == 0) {
+                        td.innerHTML = String.fromCharCode(64 + j);
+                        td.style.fontSize = '25px';
+
+                    } else if (j == 0) {
+                        td.innerHTML = String.fromCharCode(48 + i);
+                        td.style.fontSize = '25px';
+
+                    } else if ((i + j) % 2 != 0) {
+                        td.style.backgroundColor = 'orange';
+                    } else {
+                        td.style.backgroundColor = 'grey';
+                    }
+                }
+            }
+            return board;
+        }
+
+        function fillBoard() {
+            for (i = 1; i <= 8; i++) {
+                document.querySelector('#td' + String.fromCharCode(64 + i) + '7').innerHTML = '&#9823;';
+            }
+            for (i = 1; i <= 8; i++) {
+                document.querySelector('#td' + String.fromCharCode(64 + i) + '2').innerHTML = '&#9817;';
+            }
+            document.querySelector('#tdA8 ').innerHTML = '&#9820;';
+            document.querySelector('#tdH8 ').innerHTML = '&#9820;';
+            document.querySelector('#tdB8 ').innerHTML = '&#9822;';
+            document.querySelector('#tdG8 ').innerHTML = '&#9822;';
+            document.querySelector('#tdC8 ').innerHTML = '&#9821;';
+            document.querySelector('#tdF8 ').innerHTML = '&#9821;';
+            document.querySelector('#tdD8 ').innerHTML = '&#9819;';
+            document.querySelector('#tdE8 ').innerHTML = '&#9818;';
+
+            document.querySelector('#tdA1 ').innerHTML = '&#9814;';
+            document.querySelector('#tdH1 ').innerHTML = '&#9814;';
+            document.querySelector('#tdB1 ').innerHTML = '&#9816;';
+            document.querySelector('#tdG1 ').innerHTML = '&#9816;';
+            document.querySelector('#tdC1 ').innerHTML = '&#9815;';
+            document.querySelector('#tdF1 ').innerHTML = '&#9815;';
+            document.querySelector('#tdD1 ').innerHTML = '&#9813;';
+            document.querySelector('#tdE1 ').innerHTML = '&#9812;';
+
+
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
