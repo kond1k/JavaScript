@@ -27,11 +27,9 @@
                     if (i == 0 && j == 0) {} else if (i == 0) {
                         td.innerHTML = String.fromCharCode(64 + j);
                         td.style.fontSize = '25px';
-
                     } else if (j == 0) {
                         td.innerHTML = String.fromCharCode(48 + i);
                         td.style.fontSize = '25px';
-
                     } else if ((i + j) % 2 != 0) {
                         td.style.backgroundColor = 'orange';
                     } else {
