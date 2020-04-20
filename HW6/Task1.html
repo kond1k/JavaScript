@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="small_div">
+        <img src="imgSmall/1.jpg" alt="Поляна" onclick="f(this)">
+        <img src="imgSmall/2.jpg" alt="Тачка" onclick="f(this)">
+        <img src="imgSmall/3.jpg" alt="Зима" onclick="f(this)">
+    </div>
+    <div id="big_div">
+        <img id="big_img_id" src="" alt="">
+
+
+    </div>
+
+
+
+    <script>
+        function f(img) {
+            var src = img.src;
+            console.log(src);
+            var mas = [];
+            mas = src.split('/');
+            // mas = src.split('\\'); // Для Windows
+            mas[mas.length - 2] = 'imgBig';
+            var srcBig = mas.join('/');
+            // var srcBig = mas.join('\\'); // Для Windows
+            var img = document.querySelector('#big_img_id');
+            img.setAttribute('src', srcBig);
+            img.setAttribute('alt', 'Картинка не найдена');
+        }
+    </script>
+</body>
+
+</html>
