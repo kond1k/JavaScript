@@ -1,0 +1,10 @@
+.item{
+    text-align: center;
+    float: left;
+    width: 30%;
+}
+
+.item_img{
+    width: 200px;
+    height: 400px;
+}

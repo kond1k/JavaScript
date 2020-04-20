@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="basket" style="height: 250px;">
+
+    </div>
+    <p id="total">Общая сумма: 0</p>
+    <hr id="hr">
+
+    <div id="items">
+        <div id="milk" class="item">
+            <h1 id="milk_title" class="item_title">Молоко</h1>
+            <img src="img/milk.jpg" alt="milk" id="milk_img" class="item_img">
+            <p id="milk_price" class="item_price">50</p>
+            <button onclick="buy(event)" id="milk_button" class="item_button">Купить</button>
+
+
+        </div>
+        <div id="meat" class="item">
+            <h1 id="meat_title" class="item_title">Мясо</h1>
+            <img src="img/meat.jpg" alt="meat" id="meat_img" class="item_img">
+            <p id="meat_price" class="item_price">200</p>
+            <button onclick="buy(event)" id="meat_button" class="item_button">Купить</button>
+
+
+        </div>
+        <div id="bread" class="item">
+            <h1 id="bread_title" class="item_title">Хлеб</h1>
+            <img src="img/bread.jpg" alt="bread" id="bread_img" class="item_img">
+            <p id="bread_price" class="item_price">20</p>
+            <button onclick="buy(event)" id="bread_button" class="item_button">Купить</button>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        function buy(event) {
+            var name = event.path[1].children[0].textContent;
+            var price = event.path[1].children[2].textContent;
+            id = 'basket_' + event.path[1].children[0].id;
+            if (!document.querySelector('#' + id)) {
+                var elem = document.createElement('div');
+                var p = document.createElement('p');
+                p.innerHTML = name + ' 1 ' + "стоимость " + price;
+                elem.id = id;
+                elem.append(p);
+                basket.append(elem);
+            } else {
+                var p = document.querySelector('#' + id + ' p');
+                var mas = p.textContent.split(' ')
+                mas[1] = parseInt(mas[1]);
+                mas[1] += 1;
+                p.innerHTML = mas.join(' ');
+            }
+            var total = document.querySelector('#total');
+            var total_mas = total.textContent.split(' ');
+            total_mas[2] = parseInt(total_mas[2]);
+            total_mas[2] += parseInt(price);
+            total.innerHTML = total_mas.join(' ');
+        }
+    </script>
+</body>
+
+</html>
