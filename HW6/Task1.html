@@ -23,17 +23,12 @@
 
     <script>
         function f(img) {
-            var src = img.src;
-            console.log(src);
-            var mas = [];
-            mas = src.split('/');
-            // mas = src.split('\\'); // Для Windows
-            mas[mas.length - 2] = 'imgBig';
-            var srcBig = mas.join('/');
-            // var srcBig = mas.join('\\'); // Для Windows
+            var src = img.src.replace('imgSmall', 'imgBig');
             var img = document.querySelector('#big_img_id');
-            img.setAttribute('src', srcBig);
-            img.setAttribute('alt', 'Картинка не найдена');
+            img.setAttribute('src', src);
+            img.onerror = function () {
+                alert('Картинка не найдена');
+            }
         }
     </script>
 </body>
